@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Доставка</title>
+  <style>
+    /* Стили для всего тела */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #e6f2ff;
+    }
+
+    /* Стили для контейнера */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .container111 {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 80px;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: #e6f2ff;
+    }
+
+    /* Стили для формы */
+    .form-container {
+      width: 45%;
+      margin-top: 8px; 
+      
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Стили для таблицы заказов */
+    .orders-container {
+      margin-top: -10px;
+      margin-bottom: 100px; /* Установите желаемое значение отступа между таблицей и другими элементами */
+      max-height: 100px; /* Установите желаемую максимальную высоту */
+      margin-left: 0px;
+      padding: 18px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+  </style>
+
+
+
+</head>
+<body>
+  <div class="container111">
+
+  </div>
+  <div class="container">
+
+    <div class="orders-container">
+      <h3>
+        <div class="containerkkk">
+            <h1 style="font-size: 35px; font-weight: bold; text-align: left;">Данные кандидатов</h1>
+        </div>
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Второе имя</th>
+            <th>телефон</th>
+            <th>Возраст</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user. name }}</td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.second_name }}</td>
+            <td>{{ user.phone_number }}</td>
+            <td>{{ user.age }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="form-container">
+      <h1 style="font-size: 35px; font-weight: bold; text-align: left;">Оформление</h1>
+
+      <div class="form-group">
+        <label>Имя</label>
+        <input name="name" id="name" [(ngModel)]="name" />
+      </div>
+      <div class="form-group">
+        <label>Фамилия</label>
+        <input name="surname" id="surname" [(ngModel)]="surname" />
+      </div>
+      <div class="form-group">
+        <label>Второе имя</label>
+        <input name="second_name" id="second_name" [(ngModel)]="second_name" />
+
+      </div>
+      <div class="form-group">
+        <label>Номер телефона</label>
+        <input name="phone_number" id="phone_number" [(ngModel)]="phone_number" />
+      </div>
+      <div class="form-group">
+        <label>Возраст</label>
+        <input name="age" id="age" [(ngModel)]="age" />
+      </div>
+      <div class="form-group">
+        <button (click)="addUser()">Подать заявку</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

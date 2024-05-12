@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Доставка</title>
+  <style>
+    /* Стили для всего тела */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #e6f2ff;
+    }
+
+    /* Стили для контейнера */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .container111 {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 80px;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: #e6f2ff;
+    }
+
+    /* Стили для формы */
+    .form-container {
+        width: 45%;
+      margin-top: 8px; 
+      
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Стили для таблицы заказов */
+    .orders-container {
+      margin-top: -10px;
+      margin-bottom: 100px; /* Установите желаемое значение отступа между таблицей и другими элементами */
+      max-height: 100px; /* Установите желаемую максимальную высоту */
+      margin-left: 0px;
+      padding: 18px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+  </style>
+
+
+
+</head>
+<body>
+    <div class="container111">
+
+    </div>
+  <div class="container">
+
+    <div class="orders-container">
+      <h3>
+        <div class="containerkkk">
+            <h1 style="font-size: 35px; font-weight: bold; text-align: right;">Заказ в разделе кафе</h1>
+        </div>
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID гостя</th>
+            <th>Выпечка</th>
+            <th>Кофе</th>
+            <th>Топинг</th>
+            <th>Сахар</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.numn }}</td>
+            <td>{{ user. bake }}</td>
+            <td>{{ user.coffe }}</td>
+            <td>{{ user.toping }}</td>
+            <td>{{ user.shuga }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="form-container">
+        <h1 style="font-size: 35px; font-weight: bold; text-align: left;">Оформление</h1>
+
+      <div class="form-group">
+        <label for="numn">ID вашего аккаунта</label>
+        <input name="numn" id="numn" [(ngModel)]="numn" />
+      </div>
+      <div class="form-group">
+        <label for="type">Выпечка</label>
+        <select id="bake" [(ngModel)]="bake">
+            <option value="shiabata">Чиабата</option>
+            <option value="cruasan">Круассан</option>
+            <option value="tart">Малиновый тарт</option>
+            <option value="nof">Нет, спасибо</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="coffe">Кофе</label>
+        <select id="coffe" [(ngModel)]="coffe">
+            <option value="late">Латте</option>
+            <option value="capushino">Капучино</option>
+            <option value="espresso">Эспрессо</option>
+            <option value="nof">Нет, спасибо</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="num_age">Топинг</label>
+        <select id="toping" [(ngModel)]="toping">
+            <option value="caramel">Карамель</option>
+            <option value="les_oreh">Лесной орех</option>
+            <option value="malina">Малина</option>
+            <option value="no">Нет, спасибо</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="priority">Сахар</label>
+        <select id="shuga" [(ngModel)]="shuga">
+            <option value="yes">Да</option>
+            <option value="no">Нет, спасибо</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <button (click)="addUser()">Заказать</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

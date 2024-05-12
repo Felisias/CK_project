@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-place-scale=1.0">
+  <title>Навигационная панель</title>
+  <style>
+    /* CSS */
+    .user-info {
+      display: flex;
+      align-items: center;
+      margin-left: auto; /* Move to left side automatically */
+    }
+
+    .user-avatar {
+      width: 90px; /* Double the size */
+      height: 90px;
+      border-radius: 50%;
+      margin-right: 10px; /* Increased spacing */
+      background-color: #ffffff; /* Placeholder color for avatar */
+    }
+
+    .user-name-id {
+      font-size: 20px;
+      color: #333;
+      display: flex; /* Make it a flexbox for alignment */
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-end; /* Align to the right */
+      font-weight: bold; /* Make name bold */
+    }
+
+    .user-name {
+      font-weight: bold; /* Make name bold */
+    }
+
+    .user-id {
+      font-size: 12px; /* Slightly smaller ID */
+      margin-top: 5px; /* Add some spacing between name and ID */
+    }
+  </style>
+</head>
+<body>
+  <div style="background-color: #ffffff;">
+    
+    <div style="display: flex; align-items: center;">
+      <a href="/" style="display: flex;      margin-left: 19px;      align-items: center; justify-content: center; padding: 10px 15px; border-radius: 5px; background-color: #bebebe; font-family: 'Arial', sans-serif; font-size: 16px; color: #333; text-decoration: none;">Трудоустройство</a>
+      <a href="/page2" style="display: flex; align-items: center; justify-content: center; padding: 10px 15px; border-radius: 5px; background-color: #bebebe; font-family: 'Arial', sans-serif; font-size: 16px; color: #333; text-decoration: none; margin-left: 20px;">Мак-кафе</a>
+      <a href="/page3" style="display: flex; align-items: center; justify-content: center; padding: 10px 15px; border-radius: 5px; background-color: #bebebe; font-family: 'Arial', sans-serif; font-size: 16px; color: #333; text-decoration: none; margin-left: 20px;">Основное меню</a>
+      <div class="user-info">
+        <span class="user-name-id">John Dove Harris (ID: 993)</span> <img src="https://i.pinimg.com/originals/fa/a8/f4/faa8f491c3a1ab62a4a09b02deb09084.jpg" alt="User Avatar" class="user-avatar"> </div>
+      </div>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://unpkg.com/vue-router@4.1.2"></script>
+  <script>
+    const routes = [
+      { path: '/', component: Home },
+      { path: '/page2', component: Page2 },
+      { path: '/page3', component: Page3 },
+    ];
+
+    const router = new VueRouter({
+      routes
+    });
+
+    const app = new Vue({
+      router,
+      components: {
+        Home,
+        Page2,
+        Page3
+      }
+    }).$mount('#app');
+  </script>
+</body>
+</html>
